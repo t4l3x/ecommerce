@@ -1,0 +1,30 @@
+type Query {
+    products: [Product!]! @field(resolver: "App\\Application\\Product\\GraphQL\\Queries\\ProductQuery@products")
+    product(id: ID!): Product
+}
+
+type Product {
+    id: ID!
+    name: String!
+    description: String
+    price: Float!
+}
+
+type ProductMutation {
+    createProduct(input: CreateProductInput!): Product!  @field(resolver: "App\\Application\\Product\\GraphQL\\Mutations\\ProductMutation@createProduct")
+    updateProduct(input: UpdateProductInput!): Product!  @field(resolver: "App\\Application\\Product\\GraphQL\\Mutations\\ProductMutation@updateProduct")
+    deleteProduct(id: ID!): Boolean!  @field(resolver: "App\\Application\\Product\\GraphQL\\Mutations\\ProductMutation@deleteProduct")
+}
+
+input CreateProductInput {
+    name: String!
+    description: String
+    price: Float!
+}
+
+input UpdateProductInput {
+    id: ID!
+    name: String
+    description: String
+    price: Float
+}

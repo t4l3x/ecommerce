@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Auth\Mutations;
+namespace App\Application\Auth\GraphQL\Mutations;
 
 use Exception;
 use GraphQL\Type\Definition\ResolveInfo;
@@ -14,13 +14,17 @@ class RegisterMutation extends BaseAuthMutation
      */
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo): array
     {
-        dd('test');
-        $user = $this->authService->register($args['input']);
-        $token = $user->createToken('auth_token')->plainTextToken;
 
+        dd('test');
+        exit();
+        $email = $args['input']['email'];
+        $password = $args['input']['password'];
+
+        $user = $this->authService->register($email, $password);
+        $token = $this->laravelTokenService->createToken($email);
         return [
             'user' => $user,
-            'token' => $token,
+            'token' => $token
         ];
     }
 }

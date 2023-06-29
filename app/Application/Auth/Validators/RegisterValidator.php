@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Auth\Validators;
+namespace App\Application\Auth\Validators;
 
 use Illuminate\Validation\Rule;
 use Nuwave\Lighthouse\Validation\Validator;

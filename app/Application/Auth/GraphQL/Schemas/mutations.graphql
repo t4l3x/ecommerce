@@ -1,0 +1,28 @@
+type AuthMutation {
+    register(input: Register!): RegisterPayload @field(resolver: "App\\Application\\Auth\\GraphQL\\Mutations\\RegisterMutation")
+    login(input: Login!): LoginPayload @field(resolver: "App\\Application\\Auth\\GraphQL\\Mutations\\LoginMutation")
+}
+
+input Register @validator(class: "App\\Application\\Auth\\Validators\\RegisterValidator"){
+    name: String!
+    email: String!
+    user_type: String!
+    password: String!
+    password_confirmation: String!
+}
+
+input Login @validator(class: "App\\Application\\Auth\\Validators\\LoginValidator") {
+    email: String!
+    password: String!
+}
+
+type RegisterPayload {
+    user: User
+    token: String
+}
+
+type LoginPayload {
+    user: User
+    token: String
+}
+

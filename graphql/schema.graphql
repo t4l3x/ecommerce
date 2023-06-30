@@ -1,2 +1,3 @@
 
-#import ../app/Infrastructure/Auth/GraphQL/Schemas/*.graphql
+#import ../app/Application/Auth/GraphQL/*.graphql
+#import ../app/Application/Product/GraphQL/*.graphql

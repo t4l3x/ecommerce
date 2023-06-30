@@ -1,6 +1,6 @@
 type Query {
     products: [Product!]! @field(resolver: "App\\Application\\Product\\GraphQL\\Queries\\ProductQuery@products")
-    product(id: ID!): Product
+    product(id: ID!): Product  @field(resolver: "App\\Application\\Product\\GraphQL\\Queries\\ProductQuery@product")
 }
 
 type Product {
@@ -10,7 +10,7 @@ type Product {
     price: Float!
 }
 
-type ProductMutation {
+extend type Mutation {
     createProduct(input: CreateProductInput!): Product!  @field(resolver: "App\\Application\\Product\\GraphQL\\Mutations\\ProductMutation@createProduct")
     updateProduct(input: UpdateProductInput!): Product!  @field(resolver: "App\\Application\\Product\\GraphQL\\Mutations\\ProductMutation@updateProduct")
     deleteProduct(id: ID!): Boolean!  @field(resolver: "App\\Application\\Product\\GraphQL\\Mutations\\ProductMutation@deleteProduct")

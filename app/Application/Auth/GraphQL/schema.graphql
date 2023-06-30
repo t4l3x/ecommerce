@@ -1,4 +1,4 @@
-type AuthMutation {
+extend type Mutation {
     register(input: Register!): RegisterPayload @field(resolver: "App\\Application\\Auth\\GraphQL\\Mutations\\RegisterMutation")
     login(input: Login!): LoginPayload @field(resolver: "App\\Application\\Auth\\GraphQL\\Mutations\\LoginMutation")
 }
@@ -26,3 +26,15 @@ type LoginPayload {
     token: String
 }
 
+type Query {
+    me: User @field(resolver: "App\\Domains\\Authentication\\GraphQL\\Queries\\UserQuery")
+}
+
+# types.graphql
+type User {
+    id: ID!
+    name: String!
+    email: String!
+}
+
+scalar DateTime

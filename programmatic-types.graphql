@@ -27,12 +27,12 @@ scalar Int
 "The `Boolean` scalar type represents `true` or `false`."
 scalar Boolean
 
-"A paginated list of App\Domain\User\Entities\User items."
+"A paginated list of App\Domain\IdentityAccess\User\Entities\User items."
 type UserPaginator {
   "Pagination information about the list of items."
   paginatorInfo: PaginatorInfo!
 
-  "A list of App\Domain\User\Entities\User items."
+  "A list of App\Domain\IdentityAccess\User\Entities\User items."
   data: [User!]!
 }
 

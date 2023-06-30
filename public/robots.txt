@@ -1,2 +1,2 @@
-User-agent: *
+App\Domain\IdentityAccess\User\Entities\User-agent: *
 Disallow:

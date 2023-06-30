@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Cart\Entity;
 
-use App\Domain\Product\Entities\Product;
-
 class CartItem
 {
     public function __construct(public int $cartId, public int $productId, public int $quantity)

@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Application\Product\Graphql\Mutations;
 
+use App\Application\Product\Services\ProductServiceApplication;
+
 class ProductMutation
 {
     private ProductServiceApplication $productService;

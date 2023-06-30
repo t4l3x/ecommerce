@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Application\Product\Graphql\Queries;
 
+use App\Application\Product\Services\ProductServiceApplication;
 use Nuwave\Lighthouse\Execution\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 

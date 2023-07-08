@@ -15,8 +15,7 @@ class RegisterMutation extends BaseAuthMutation
     public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo): array
     {
 
-        dd('test');
-        exit();
+
         $email = $args['input']['email'];
         $password = $args['input']['password'];
 

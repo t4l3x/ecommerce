@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Application\Auth\Services;
 
-use App\Application\Exceptions\BaseGraphQL;
+use App\Application\Core\Exceptions\BaseGraphQL;
 use App\Domain\IdentityAccess\Auth\Exceptions\EmailAlreadyExistsException;
 use App\Domain\IdentityAccess\Auth\Exceptions\InvalidCredentialsException;
 use App\Domain\IdentityAccess\Auth\Services\AuthService;

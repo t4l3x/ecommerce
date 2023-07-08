@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Infrastructure\User\Eloquent\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\App\Domain\IdentityAccess\User\Entities\User::factory(10)->create();
+//         User::factory(10)->create();
+//
+//         User::factory()->create([
+//             'name' => 'Test App\Domain\IdentityAccess\User\Entities\User',
+//             'email' => 'test@example.com',
+//         ]);
+        $this->call([
+            ProductsTableSeeder::class,
+            // Other table seeders
+        ]);
 
-        // \App\Models\App\Domain\IdentityAccess\User\Entities\User::factory()->create([
-        //     'name' => 'Test App\Domain\IdentityAccess\User\Entities\User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

@@ -1,0 +1,68 @@
+@import "~bulma/css/bulma.css";
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+}
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+
+.navbar-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar-buttons button {
+    margin-left: 10px;
+}
+nav {
+    padding: 30px;
+}
+
+nav a {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+    color: #42b983;
+}
+.container {
+    width: 960px
+}
+.product {
+    margin: 1rem auto 3rem
+}
+table {
+    width: 100%
+}
+#toggle,
+#explain {
+    display: none
+}
+#explain p {
+    margin-bottom: 1rem
+}
+#toggle:checked ~ #explain {
+    display: block
+}
+#guide {
+    font: 0.9rem monospace;
+    line-height: 1.2rem;
+    text-align: center
+}
+li {
+    margin-bottom: 1rem
+}
+.info {
+    margin-bottom: 5px
+}
+.tag.is-circle {
+    border-radius: 50%
+}

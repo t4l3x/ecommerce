@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Laravel\Providers;
 
 use App\Domain\IdentityAccess\User\Repository\UserRepositoryInterface;
+use App\Domain\Product\Repository\IProductRepository;
 use App\Domain\Product\Repository\ProductRepositoryInterface;
 use App\Infrastructure\Product\Repository\ProductRepository;
 use App\Infrastructure\User\Repository\UserRepository;
@@ -30,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            ProductRepositoryInterface::class,
+            IProductRepository::class,
             ProductRepository::class
         );
 

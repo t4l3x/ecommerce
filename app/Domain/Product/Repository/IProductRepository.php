@@ -5,7 +5,7 @@ namespace App\Domain\Product\Repository;
 
 use App\Domain\Product\Entities\Product;
 
-interface ProductRepositoryInterface
+interface IProductRepository
 {
     public function findById(int $id): ?Product;
 

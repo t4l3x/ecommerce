@@ -2,17 +2,18 @@
 declare(strict_types=1);
 
 namespace App\Infrastructure\Product\Repository;
-use App\Infrastructure\Product\Eloquent\Product as ProductModel;
+use App\Domain\Product\Repository\IProductRepository;
+use App\Domain\Product\ValueObjects\Price;
+use App\Infrastructure\Product\Eloquent\Products as ProductModel;
 use App\Domain\Product\Entities\Product;
-use App\Domain\Product\Repository\ProductRepositoryInterface;
 use Illuminate\Support\Collection;
-class ProductRepository implements ProductRepositoryInterface
+class ProductRepository implements IProductRepository
 {
     public function save(Product $product): Product
     {
         $productModel = new ProductModel();
 
-        // This assumes your Product domain entity has getters for these properties.
+        // This assumes your Products domain entity has getters for these properties.
         // If not, adjust as necessary.
         $productModel->name = $product->name;
         $productModel->description = $product->description;
@@ -37,15 +38,14 @@ class ProductRepository implements ProductRepositoryInterface
 
         // Here you would convert the Eloquent model to a domain entity.
         // This is pseudo-code - adjust according to your actual domain entity.
-        return new Product($productModel->name, $productModel->description, $productModel->price);
+        return new Product($productModel->name, $productModel->description, new Price($productModel->price));
     }
 
     public function findAll(): array
     {
-        // Here, we're returning a Collection of Eloquent models. Ideally, you should
-        // convert these to domain entities. However, that might not be practical
-        // if you're dealing with large amounts of data. Adjust according to your needs.
-        return ProductModel::all()->toArray();
+        $productModels = ProductModel::all();
+
+        return $productModels->map(fn($productModel) => (new Product($productModel->name, $productModel->description, new Price($productModel->price)))->setId($productModel->id))->all();
     }
 
     public function delete(Product $product): void

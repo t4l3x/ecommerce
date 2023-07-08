@@ -4,16 +4,16 @@ type Query {
 }
 
 type Product {
-    id: ID!
+    id: Int!
     name: String!
     description: String
     price: Float!
 }
 
 extend type Mutation {
-    createProduct(input: CreateProductInput!): Product!  @field(resolver: "App\\Application\\Product\\GraphQL\\Mutations\\ProductMutation@createProduct")
-    updateProduct(input: UpdateProductInput!): Product!  @field(resolver: "App\\Application\\Product\\GraphQL\\Mutations\\ProductMutation@updateProduct")
-    deleteProduct(id: ID!): Boolean!  @field(resolver: "App\\Application\\Product\\GraphQL\\Mutations\\ProductMutation@deleteProduct")
+    createProduct(input: CreateProductInput!): Product!  @field(resolver: "App\\Application\\Products\\GraphQL\\Mutations\\ProductMutation@createProduct")
+    updateProduct(input: UpdateProductInput!): Product!  @field(resolver: "App\\Application\\Products\\GraphQL\\Mutations\\ProductMutation@updateProduct")
+    deleteProduct(id: ID!): Boolean!  @field(resolver: "App\\Application\\Products\\GraphQL\\Mutations\\ProductMutation@deleteProduct")
 }
 
 input CreateProductInput {

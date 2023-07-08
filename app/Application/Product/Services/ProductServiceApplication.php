@@ -17,6 +17,10 @@ class ProductServiceApplication
         return $this->productService->getProduct($id);
     }
 
+    public function getProducts(): array
+    {
+        return $this->productService->getProducts();
+    }
     public function createProduct(mixed $name, mixed $description, \App\Application\Product\Graphql\Mutations\Price $price)
     {
     }

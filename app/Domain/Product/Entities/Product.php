@@ -28,10 +28,12 @@ class Product
 
     /**
      * @param int $id
+     * @return Product
      */
-    public function setId(int $id): void
+    public function setId(int $id): Product
     {
         $this->id = $id;
+        return $this;
     }
 
 }

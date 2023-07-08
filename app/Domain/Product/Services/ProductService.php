@@ -4,14 +4,14 @@ declare(strict_types=1);
 namespace App\Domain\Product\Services;
 
 use App\Domain\Product\Entities\Product;
-use App\Domain\Product\Repository\ProductRepositoryInterface;
+use App\Domain\Product\Repository\IProductRepository;
 use App\Domain\Product\ValueObjects\Price;
 
 class ProductService
 {
-    private ProductRepositoryInterface $productRepository;
+    private IProductRepository $productRepository;
 
-    public function __construct(ProductRepositoryInterface $productRepository)
+    public function __construct(IProductRepository $productRepository)
     {
         $this->productRepository = $productRepository;
     }
@@ -29,7 +29,7 @@ class ProductService
         return $this->productRepository->findById($id);
     }
 
-    public function getProducts(): ?array
+    public function getProducts(): array
     {
         return $this->productRepository->findAll();
     }
